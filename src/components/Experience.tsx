@@ -1,4 +1,4 @@
-import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 export default function Experience() {
   const experiences = [

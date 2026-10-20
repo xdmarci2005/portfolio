@@ -2,23 +2,21 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
-import Education from "@/components/Education";
 import Skills from "@/components/Skills";
-import Experience from "@/components/Experience";
+import Trajectory from "@/components/Trajectory";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#090d16] text-slate-100">
+    <div className="flex min-h-screen flex-col bg-[#070b14] text-slate-100 selection:bg-blue-600/40 selection:text-white">
       <Navbar />
       <main className="flex-1">
         <Hero />
         <About />
         <Projects />
-        <Education />
         <Skills />
-        <Experience />
+        <Trajectory />
         <Contact />
       </main>
       <Footer />

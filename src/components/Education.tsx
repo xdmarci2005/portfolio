@@ -1,4 +1,4 @@
-import { GraduationCap, Award, BookOpen, Calendar, MapPin } from "lucide-react";
+import { GraduationCap, Calendar, MapPin } from "lucide-react";
 
 export default function Education() {
   const educationList = [
