@@ -1,173 +1,60 @@
-import {
-  GraduationCap,
-  Briefcase,
-  Calendar,
-  GitCommit,
-} from "lucide-react";
+import { Briefcase, Calendar, GraduationCap } from "lucide-react";
+
+const timeline = [
+  {
+    period: "2025 – jelenleg",
+    title: "Budapesti Műszaki és Gazdaságtudományi Egyetem",
+    subtitle: "Üzemmérnök-informatikus (BProf), VIK",
+    category: "Felsőfokú tanulmányok",
+    type: "education",
+    description: "Gyakorlatorientált képzés szoftvertervezés, algoritmusok, relációs adatbázisok és rendszerarchitektúrák fókuszával.",
+  },
+  {
+    period: "2020 – 2025",
+    title: "Bolyai János Műszaki Technikum",
+    subtitle: "Szoftverfejlesztő és tesztelő technikus",
+    category: "Szakképzés",
+    type: "education",
+    description: "Objektumorientált programozás, SQL és adatbázis-kezelés, szoftvertesztelés és hibakeresés egy ötéves képzésben.",
+  },
+  {
+    period: "2022 – 2026",
+    title: "Munkatapasztalat tanulmányok mellett",
+    subtitle: "FT Gumiszerviz, vendéglátás, iLogistic",
+    category: "Munkatapasztalat",
+    type: "work",
+    description: "Többféle munkakörben dolgoztam az egyetem mellett. Megtanultam önállóan dolgozni, tartani a tempót és megbízhatóan teljesíteni.",
+  },
+];
 
 export default function Trajectory() {
-  const timeline = [
-    {
-      period: "2025 – Jelenleg",
-      title: "Budapesti Műszaki és Gazdaságtudományi Egyetem (BME)",
-      subtitle: "Üzemmérnök-informatikus (BProf) &bull; Villamosmérnöki és Informatikai Kar (VIK)",
-      category: "Felsőfokú mérnökképzés",
-      type: "education",
-      highlight: true,
-      status: "Aktív egyetemi hallgató",
-      description:
-        "Gyakorlatorientált egyetemi mérnökképzés. A félévek során elsajátított korszerű algoritmuselméleti, szoftverarchitekturális és rendszerszintű tudást valós fejlesztői feladatokban alkalmazom.",
-      tags: ["Szoftverarchitektúra", "Algoritmusok", "Mérnöki tervezés", "Rendszerszemlélet"],
-    },
-    {
-      period: "2024 – 2025",
-      title: "Noted. Full-Stack Projektfejlesztés",
-      subtitle: "Komplex Jegyzetkezelő Rendszer &bull; Csapatmunka",
-      category: "Gyakorlati projektmunka",
-      type: "project",
-      highlight: false,
-      status: "Sikeresen bemutatva",
-      description:
-        "Kétfős csapatban megtervezett és megvalósított full-stack webalkalmazás (React.js, Node.js/Express REST API, MySQL adatbázis). Verziókövetés, agilis mérföldkövek és szoftvertesztelés a technikumi záróvizsgához.",
-      tags: ["React.js", "Node.js", "MySQL", "REST API", "Git", "Csapatmunka"],
-    },
-    {
-      period: "2020 – 2025",
-      title: "Bolyai János Műszaki Technikum és Kollégium",
-      subtitle: "Szoftverfejlesztő és Tesztelő Technikus &bull; 5 éves szakmai képzés",
-      category: "Szakmai képesítés",
-      type: "education",
-      highlight: false,
-      status: "Sikeres technikus bizonyítvány",
-      description:
-        "5 éves intenzív szakmai képzés: objektumorientált programozási paradigmák, relációs adatbázis-kezelés és SQL, valamint szoftvertesztelési metodológiák és hibakeresési eljárások mélyreható elsajátítása.",
-      tags: ["OOP", "Relációs Adatbázisok & SQL", "Szoftvertesztelés", "Agilis módszertanok"],
-    },
-    {
-      period: "2022 – 2024",
-      title: "Runner / Pincér munkakör",
-      subtitle: "T62 Hotel / Lion's Locker / Yamato &bull; Tanulmányok mellett",
-      category: "Személyes munkamorál",
-      type: "work",
-      highlight: false,
-      status: "Felsőfokú terhelhetőség",
-      description:
-        "Pörgős és fegyelmezett vendéglátóipari munkavégzés párhuzamosan az iskolai tanulmányokkal. Kiemelkedő fegyelem, gyors helyzetfelismerés, hatékony problémamegoldás és tiszta kommunikáció váratlan szituációkban.",
-      tags: ["Stressztűrés", "Felelősségvállalás", "Ügyfélorientáció", "Csapatmunka"],
-    },
-    {
-      period: "2024",
-      title: "Raktározási & Logisztikai feladatok",
-      subtitle: "iLogistic Kft. &bull; Rendszerszintű precizitás",
-      category: "Folyamatfegyelem",
-      type: "work",
-      highlight: false,
-      status: "Önálló munkavégzés",
-      description:
-        "Készletkezelési és logisztikai feladatok precíz lebonyolítása, ahol a hiba nélküli pontosság, a pontos adminisztráció és a felelősségteljes önállóság volt a legfontosabb mérce.",
-      tags: ["Precizitás", "Rendszerfegyelem", "Önállóság"],
-    },
-  ];
-
   return (
-    <section id="palya" className="py-24 border-t border-slate-900 bg-[#070b14] relative">
-      {/* Anchors for backwards compatibility */}
-      <div id="tanulmanyok" className="absolute top-0" />
-      <div id="tapasztalat" className="absolute top-1/2" />
-
+    <section id="palya" className="border-t border-[#26313d] bg-[#0b1117] py-24">
       <div className="mx-auto max-w-6xl px-6">
-        
-        {/* Section Header */}
-        <div className="mb-14">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Szakmai pálya &amp; tapasztalat
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
-            Az 5 éves technikumi szoftverfejlesztő alapok, az egyetemi BME VIK mérnöki elmélet
-            és a tanulmányok melletti munkavégzés során megszerzett teherbírás szimbiózisa.
-          </p>
+        <div className="mb-12 max-w-2xl">
+          <p className="mb-3 text-sm text-[#b99462]">Honnan jövök</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-[#f4f1ea] sm:text-4xl">Szakmai pálya & tapasztalat</h2>
+          <p className="mt-4 text-base leading-7 text-[#b8c0c8]">Tanulmányok és munkák, amelyek a fejlesztői szemléletemet formálták.</p>
         </div>
-
-        {/* Chronological Developer Timeline */}
-        <div className="relative border-l-2 border-slate-800 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-12">
-          {timeline.map((item, idx) => (
-            <div key={idx} className="relative group">
-              
-              {/* Timeline Node */}
-              <div
-                className={`absolute -left-[31px] sm:-left-[47px] top-1.5 flex h-7 w-7 items-center justify-center rounded-full border-2 transition-transform duration-200 group-hover:scale-110 ${
-                  item.highlight
-                    ? "border-blue-400 bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-                    : "border-slate-700 bg-[#0c1322] text-slate-400"
-                }`}
-              >
-                {item.type === "education" ? (
-                  <GraduationCap className="h-3.5 w-3.5" />
-                ) : item.type === "project" ? (
-                  <GitCommit className="h-3.5 w-3.5 text-blue-400" />
-                ) : (
-                  <Briefcase className="h-3.5 w-3.5" />
-                )}
-              </div>
-
-              {/* Timeline Card */}
-              <div
-                className={`rounded-xl border p-6 sm:p-7 transition-all ${
-                  item.highlight
-                    ? "border-blue-500/30 bg-[#0c1527] shadow-xl shadow-blue-900/10"
-                    : "border-slate-800/80 bg-[#0c1322]/80 hover:border-slate-700 hover:bg-[#0e172a]"
-                }`}
-              >
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono inline-flex items-center gap-1 rounded bg-blue-950/80 border border-blue-800/50 px-2.5 py-0.5 text-xs font-semibold text-blue-300">
-                      <Calendar className="h-3 w-3" />
-                      {item.period}
-                    </span>
-                    <span className="text-xs font-mono text-slate-400">
-                      {item.category}
-                    </span>
-                  </div>
-
-                  <span
-                    className={`text-xs font-mono px-2.5 py-0.5 rounded-full ${
-                      item.highlight
-                        ? "bg-emerald-950/70 text-emerald-300 border border-emerald-800/50 font-semibold"
-                        : "bg-slate-800/60 text-slate-300"
-                    }`}
-                  >
-                    {item.status}
-                  </span>
+        <div className="relative ml-3 border-l border-[#52606c] pl-8 sm:ml-8 sm:pl-10">
+          <div className="space-y-10">
+            {timeline.map((item, index) => (
+              <article key={item.title} className="relative border border-[#52606c] bg-[#111820] p-6 sm:p-7">
+                <span className="absolute -left-[43px] top-7 flex h-6 w-6 items-center justify-center border border-[#b99462] bg-[#0b1117] text-[#d8bd91] sm:-left-[53px]">
+                  {item.type === "education" ? <GraduationCap className="h-3.5 w-3.5" /> : <Briefcase className="h-3.5 w-3.5" />}
+                </span>
+                <div className="flex flex-wrap items-center gap-3 text-xs text-[#8f9aa4]">
+                  <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 text-[#b99462]" />{item.period}</span>
+                  <span className="text-[#52606c]">/</span><span>{item.category}</span>
                 </div>
-
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm font-medium text-blue-400 mt-0.5">
-                  <span dangerouslySetInnerHTML={{ __html: item.subtitle }} />
-                </p>
-
-                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-slate-300">
-                  {item.description}
-                </p>
-
-                {/* Tags */}
-                <div className="mt-5 pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5">
-                  {item.tags.map((tag, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="font-mono text-[10px] sm:text-xs rounded bg-slate-850 px-2 py-0.5 text-slate-300 border border-slate-750"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-          ))}
+                <h3 className="mt-4 text-lg font-semibold text-[#f4f1ea] sm:text-xl">{item.title}</h3>
+                <p className="mt-1 text-sm text-[#d8bd91]">{item.subtitle}</p>
+                <p className="mt-4 max-w-3xl text-sm leading-7 text-[#b8c0c8]">{item.description}</p>
+                {index === 0 && <span className="mt-5 inline-block border border-[#718a78] px-2.5 py-1 text-xs text-[#9caf9b]">Aktív</span>}
+              </article>
+            ))}
+          </div>
         </div>
-
       </div>
     </section>
   );

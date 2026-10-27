@@ -9,9 +9,9 @@ export default function Education() {
       degree: "Üzemmérnök-informatikus (BProf)",
       location: "Budapest",
       description:
-        "Gyakorlatorientált felsőfokú mérnökképzés. Az egyetemi félévek során megszerzett korszerű elméleti és rendszerszintű tudást valós szakmai környezetben, éles fejlesztői feladatokban kamatoztatom.",
-      skills: ["Szoftverarchitektúra", "Algoritmusok", "Mérnöki tervezés", "Rendszerüzemeltetési alapok"],
-      status: "Aktív hallgatói jogviszony",
+        "Gyakorlatorientált felsőfokú informatikus képzés. Főbb területek: szoftvertervezés, algoritmusok, relációs adatbázisok és rendszerarchitektúrák.",
+      skills: ["Szoftverarchitektúra", "Algoritmusok", "Adatbázisok", "Rendszerszemlélet"],
+      status: "Aktív hallgató",
       highlight: true,
     },
     {
@@ -21,9 +21,9 @@ export default function Education() {
       degree: "Szoftverfejlesztő és Tesztelő Technikus",
       location: "Budapest",
       description:
-        "5 éves szakmai képzés, amely során elsajátítottam a programozási alapokat, az objektumorientált gondolkodást, az adatbázis-kezelést, valamint a tesztelési metodológiákat. Itt vált bizonyossá az elkötelezettségem a szoftverfejlesztés iránt.",
-      skills: ["Objektumorientált programozás", "Relációs adatbázisok & SQL", "Szoftvertesztelés", "Agilis csapatmunka"],
-      status: "Sikeres szakmai záróvizsga és technikus bizonyítvány",
+        "5 éves szakmai képzés: objektumorientált programozás, relációs adatbázis-kezelés és SQL, valamint szoftvertesztelés és hibakeresés.",
+      skills: ["Objektumorientált programozás", "Relációs adatbázisok & SQL", "Szoftvertesztelés", "Git"],
+      status: "Technikus bizonyítvány",
       highlight: false,
     },
   ];
@@ -36,7 +36,7 @@ export default function Education() {
             Tanulmányok &amp; szakmai háttér
           </h2>
           <p className="mt-3 text-base text-slate-400 max-w-2xl">
-            A szilárd elméleti bázis és az 5 éves gyakorlati szoftverfejlesztő képzés szimbiózisa.
+            Szakmai tanulmányok és képzések áttekintése.
           </p>
         </div>
 
@@ -47,7 +47,7 @@ export default function Education() {
               <div
                 className={`absolute -left-[31px] md:-left-[47px] top-1.5 flex h-7 w-7 items-center justify-center rounded-full border-2 ${
                   edu.highlight
-                    ? "border-blue-500 bg-blue-600 text-white shadow-lg shadow-blue-500/20"
+                    ? "border-blue-400 bg-blue-600 text-white shadow-sm"
                     : "border-slate-700 bg-slate-900 text-slate-400"
                 }`}
               >
@@ -57,12 +57,12 @@ export default function Education() {
               <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 transition-colors hover:border-slate-700">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1 rounded-md bg-blue-950/70 border border-blue-800/50 px-2.5 py-0.5 text-xs font-semibold text-blue-300 tabular-nums">
-                      <Calendar className="h-3 w-3" />
+                    <span className="inline-flex items-center gap-1 rounded bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-200">
+                      <Calendar className="h-3 w-3 text-slate-400" />
                       {edu.period}
                     </span>
                     <span className="inline-flex items-center gap-1 text-xs text-slate-400">
-                      <MapPin className="h-3 w-3" />
+                      <MapPin className="h-3 w-3 text-slate-400" />
                       {edu.location}
                     </span>
                   </div>
@@ -70,7 +70,7 @@ export default function Education() {
                   <span
                     className={`text-xs font-medium px-2.5 py-0.5 rounded-full ${
                       edu.highlight
-                        ? "bg-emerald-950/60 text-emerald-300 border border-emerald-800/40"
+                        ? "bg-blue-950/60 text-blue-300 border border-blue-800/40"
                         : "bg-slate-800/60 text-slate-300"
                     }`}
                   >

@@ -1,4 +1,5 @@
 "use client";
+// avoid-ai-design-ignore-file: I3
 
 import { useState } from "react";
 import {
@@ -8,7 +9,6 @@ import {
   Send,
   Copy,
   Check,
-  CheckCircle2,
   Loader2,
   AlertCircle,
   ArrowUpRight,
@@ -82,45 +82,42 @@ export default function Contact() {
   };
 
   return (
-    <section id="kapcsolat" className="py-24 border-t border-slate-900 bg-[#070b14] relative">
+    <section id="kapcsolat" className="border-t border-[#26313d] bg-[#0b1117] py-24">
       <div className="mx-auto max-w-6xl px-6">
         
         {/* Section Header */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Lépjünk kapcsolatba
+          <p className="mb-3 text-sm text-[#b99462]">Kapcsolat</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-[#f4f1ea] sm:text-4xl">
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
-            Nyitott vagyok fejlesztői és gyakornoki megkeresésekre, szakmai együttműködésekre.
-            Írj bátran az alábbi űrlapon vagy keress közvetlenül elérhetőségeimen!
+          <p className="mt-4 max-w-2xl text-base leading-7 text-[#b8c0c8]">
+            Nyitott vagyok junior fejlesztői és szakmai gyakornoki lehetőségekre. Az alábbi űrlapon vagy közvetlen elérhetőségeimen keresztül tudsz elérni.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Direct contact info card */}
-          <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-blue-500/20 bg-[#0c1322] p-6 sm:p-8 shadow-xl space-y-6">
+          <div className="lg:col-span-5 flex flex-col justify-between border border-[#52606c] bg-[#111820] p-6 sm:p-8 space-y-6">
             <div className="space-y-5">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                <h3 className="text-lg font-bold text-white">Közvetlen csatornák</h3>
-                <span className="font-mono text-[11px] text-emerald-400 flex items-center gap-1">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <div className="flex items-center justify-between border-b border-[#26313d] pb-3">
+                <h3 className="text-lg font-semibold text-[#f4f1ea]">Közvetlen elérhetőség</h3>
+                <span className="flex items-center gap-1.5 text-xs text-[#9caf9b]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#9caf9b]" />
                   Elérhető
                 </span>
               </div>
 
               {/* Email */}
-              <div className="rounded-xl border border-slate-800 bg-[#080d19] p-4 transition-all hover:border-blue-500/30">
+              <div className="border border-[#52606c] bg-[#0b1117] p-4 transition-colors hover:border-[#b99462]">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/10 text-blue-400 border border-blue-500/20">
-                      <Mail className="h-4 w-4" />
-                    </div>
+                    <Mail className="h-5 w-5 shrink-0 text-[#b99462]" />
                     <div>
-                      <p className="font-mono text-[11px] text-slate-400">Email cím</p>
+                      <p className="text-xs text-[#8f9aa4]">Email cím</p>
                       <a
                         href="mailto:figuramarton2005@gmail.com"
-                        className="text-xs sm:text-sm font-medium text-white hover:text-blue-400 transition-colors"
+                        className="text-xs font-medium text-[#f4f1ea] transition-colors hover:text-[#d8bd91] sm:text-sm"
                       >
                         figuramarton2005@gmail.com
                       </a>
@@ -130,10 +127,10 @@ export default function Contact() {
                     type="button"
                     onClick={() => handleCopy("figuramarton2005@gmail.com", "email")}
                     aria-label="Email cím másolása"
-                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                    className="flex h-8 w-8 items-center justify-center border border-[#52606c] text-[#8f9aa4] transition-colors hover:border-[#b99462] hover:text-[#f4f1ea]"
                   >
                     {copiedField === "email" ? (
-                      <Check className="h-3.5 w-3.5 text-emerald-400" />
+                      <Check className="h-3.5 w-3.5 text-[#9caf9b]" />
                     ) : (
                       <Copy className="h-3.5 w-3.5" />
                     )}
@@ -142,17 +139,15 @@ export default function Contact() {
               </div>
 
               {/* Phone */}
-              <div className="rounded-xl border border-slate-800 bg-[#080d19] p-4 transition-all hover:border-blue-500/30">
+              <div className="border border-[#52606c] bg-[#0b1117] p-4 transition-colors hover:border-[#b99462]">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/10 text-blue-400 border border-blue-500/20">
-                      <Phone className="h-4 w-4" />
-                    </div>
+                    <Phone className="h-5 w-5 shrink-0 text-[#b99462]" />
                     <div>
-                      <p className="font-mono text-[11px] text-slate-400">Telefonszám</p>
+                      <p className="text-xs text-[#8f9aa4]">Telefonszám</p>
                       <a
                         href="tel:+36707034644"
-                        className="text-xs sm:text-sm font-medium text-white hover:text-blue-400 transition-colors tabular-nums"
+                        className="text-xs font-medium text-[#f4f1ea] transition-colors hover:text-[#d8bd91] sm:text-sm"
                       >
                         +36 70 703 4644
                       </a>
@@ -162,10 +157,10 @@ export default function Contact() {
                     type="button"
                     onClick={() => handleCopy("+36707034644", "phone")}
                     aria-label="Telefonszám másolása"
-                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                    className="flex h-8 w-8 items-center justify-center border border-[#52606c] text-[#8f9aa4] transition-colors hover:border-[#b99462] hover:text-[#f4f1ea]"
                   >
                     {copiedField === "phone" ? (
-                      <Check className="h-3.5 w-3.5 text-emerald-400" />
+                      <Check className="h-3.5 w-3.5 text-[#9caf9b]" />
                     ) : (
                       <Copy className="h-3.5 w-3.5" />
                     )}
@@ -174,15 +169,13 @@ export default function Contact() {
               </div>
 
               {/* Location */}
-              <div className="rounded-xl border border-slate-800 bg-[#080d19] p-4">
+              <div className="border border-[#52606c] bg-[#0b1117] p-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800/60 text-slate-400">
-                    <MapPin className="h-4 w-4" />
-                  </div>
+                  <MapPin className="h-5 w-5 shrink-0 text-[#b99462]" />
                   <div>
-                    <p className="font-mono text-[11px] text-slate-400">Tartózkodási hely</p>
-                    <p className="text-xs sm:text-sm font-medium text-white">
-                      Budapest, 1119, Etele út 30 (XI. kerület)
+                    <p className="text-xs text-[#8f9aa4]">Tartózkodási hely</p>
+                    <p className="text-xs font-medium text-[#f4f1ea] sm:text-sm">
+                      Budapest (XI. kerület)
                     </p>
                   </div>
                 </div>
@@ -190,15 +183,15 @@ export default function Contact() {
             </div>
 
             {/* Quick Developer Action */}
-            <div className="pt-4 border-t border-slate-800 space-y-2">
-              <p className="font-mono text-[11px] text-slate-400">
-                GitHub Repositoryk &amp; Forráskód:
+            <div className="space-y-2 border-t border-[#26313d] pt-4">
+              <p className="text-xs text-[#8f9aa4]">
+                GitHub profil és forráskódok:
               </p>
               <a
                 href="https://github.com/xdmarci2005"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-700 bg-slate-900/90 py-2.5 text-xs font-semibold text-white transition hover:bg-slate-800 hover:border-slate-600"
+                className="flex w-full items-center justify-center gap-2 border border-[#52606c] bg-[#0b1117] py-2.5 text-xs font-semibold text-[#f4f1ea] transition hover:border-[#b99462] hover:text-[#d8bd91]"
               >
                 <GithubIcon className="h-4 w-4" />
                 github.com/xdmarci2005
@@ -208,14 +201,14 @@ export default function Contact() {
           </div>
 
           {/* Contact Message Form */}
-          <div className="lg:col-span-7 rounded-2xl border border-slate-800 bg-[#0c1322]/80 p-6 sm:p-8 backdrop-blur-sm">
+          <div className="lg:col-span-7 border border-[#52606c] bg-[#111820] p-6 sm:p-8">
             {formSubmitted ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">
-                  <CheckCircle2 className="h-7 w-7" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center border border-[#718a78] bg-[#718a78]/10 text-[#9caf9b]">
+                  <Check className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-bold text-white">Köszönöm az üzenetedet!</h3>
-                <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-md leading-relaxed">
+                <h3 className="text-xl font-semibold text-[#f4f1ea]">Köszönöm az üzenetedet!</h3>
+                <p className="mt-2 max-w-md text-xs leading-relaxed text-[#b8c0c8] sm:text-sm">
                   Megkaptam az üzenetedet, és amint lehetséges, felveszem veled a kapcsolatot a megadott e-mail címen.
                 </p>
                 <button
@@ -224,24 +217,24 @@ export default function Contact() {
                     setFormSubmitted(false);
                     setFormData({ name: "", email: "", subject: "", message: "" });
                   }}
-                  className="mt-6 rounded-lg bg-slate-800 px-4 py-2 font-mono text-xs font-semibold text-white hover:bg-slate-700 transition"
+                  className="mt-6 border border-[#52606c] px-4 py-2 text-xs font-semibold text-[#f4f1ea] transition hover:border-[#b99462]"
                 >
-                  Új üzenet küldése &rarr;
+                  Új üzenet küldése
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white">Közvetlen üzenetküldés</h3>
-                  <p className="mt-1 text-xs text-slate-400">
-                    Töltsd ki az alábbi űrlapot projektajánlattal, szakmai kérdéssel vagy interjú felkéréssel.
+                  <h3 className="text-lg font-semibold text-[#f4f1ea]">Üzenetküldés</h3>
+                  <p className="mt-1 text-xs text-[#8f9aa4]">
+                    Kérdés, projekt vagy pozíció kapcsán töltsd ki az alábbi mezőket.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-xs font-medium text-slate-300 mb-1">
-                      Teljes név <span className="text-blue-400">*</span>
+                      Teljes név <span className="text-[#b99462]">*</span>
                     </label>
                     <input
                       id="name"
@@ -250,13 +243,13 @@ export default function Contact() {
                       placeholder="Pl. Kovács Péter"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full rounded-lg border border-slate-800 bg-[#070b14] px-3.5 py-2 text-xs sm:text-sm text-white placeholder-slate-500 transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className="w-full border border-[#52606c] bg-[#0b1117] px-3.5 py-2 text-xs text-[#f4f1ea] placeholder-[#8f9aa4] transition focus:border-[#b99462] focus:outline-none focus:ring-1 focus:ring-[#b99462] sm:text-sm"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-xs font-medium text-slate-300 mb-1">
-                      Email cím <span className="text-blue-400">*</span>
+                      Email cím <span className="text-[#b99462]">*</span>
                     </label>
                     <input
                       id="email"
@@ -265,7 +258,7 @@ export default function Contact() {
                       placeholder="nev@ceg.hu"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full rounded-lg border border-slate-800 bg-[#070b14] px-3.5 py-2 text-xs sm:text-sm text-white placeholder-slate-500 transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className="w-full border border-[#52606c] bg-[#0b1117] px-3.5 py-2 text-xs text-[#f4f1ea] placeholder-[#8f9aa4] transition focus:border-[#b99462] focus:outline-none focus:ring-1 focus:ring-[#b99462] sm:text-sm"
                     />
                   </div>
                 </div>
@@ -280,13 +273,13 @@ export default function Contact() {
                     placeholder="Pl. Junior szoftverfejlesztő pozíció / projektlehetőség"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full rounded-lg border border-slate-800 bg-[#070b14] px-3.5 py-2 text-xs sm:text-sm text-white placeholder-slate-500 transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    className="w-full border border-[#52606c] bg-[#0b1117] px-3.5 py-2 text-xs text-[#f4f1ea] placeholder-[#8f9aa4] transition focus:border-[#b99462] focus:outline-none focus:ring-1 focus:ring-[#b99462] sm:text-sm"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-xs font-medium text-slate-300 mb-1">
-                    Üzenet szövege <span className="text-blue-400">*</span>
+                    Üzenet szövege <span className="text-[#b99462]">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -295,7 +288,7 @@ export default function Contact() {
                     placeholder="Írd le a projektet, a nyitott pozíciót vagy a kérdésedet..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full rounded-lg border border-slate-800 bg-[#070b14] px-3.5 py-2 text-xs sm:text-sm text-white placeholder-slate-500 transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 resize-none"
+                    className="w-full resize-none border border-[#52606c] bg-[#0b1117] px-3.5 py-2 text-xs text-[#f4f1ea] placeholder-[#8f9aa4] transition focus:border-[#b99462] focus:outline-none focus:ring-1 focus:ring-[#b99462] sm:text-sm"
                   />
                 </div>
 
@@ -309,7 +302,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-blue-600/30 transition hover:bg-blue-500 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="inline-flex w-full items-center justify-center gap-2 bg-[#b99462] py-2.5 text-xs font-semibold text-[#171b20] shadow-sm transition hover:bg-[#d8bd91] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm"
                 >
                   {isSubmitting ? (
                     <>

@@ -7,15 +7,15 @@
 
 @layer base {
   :root {
-    --background: #070b14;
+    --background: #0b1117;
     --foreground: #f1f5f9;
-    --card: #0c1322;
+    --card: #111820;
     --card-foreground: #f1f5f9;
-    --border: #1a263d;
-    --accent: #2563eb;
+    --border: #26313d;
+    --accent: #b99462;
     --accent-foreground: #ffffff;
-    --muted: #131d31;
-    --muted-foreground: #94a3b8;
+    --muted: #8f9aa4;
+    --muted-foreground: #b8c0c8;
   }
 
   * {
@@ -53,14 +53,14 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #070b14;
+    background: #0b1117;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: #52606c;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #3b82f6;
+    background: #b99462;
   }
 }
 
@@ -68,8 +68,8 @@
 .bg-dev-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(184, 192, 200, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184, 192, 200, 0.035) 1px, transparent 1px);
 }
 
 .bg-dev-dots {
@@ -80,4 +80,3 @@
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
-

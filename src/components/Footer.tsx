@@ -3,65 +3,62 @@ import GithubIcon from "@/components/icons/GithubIcon";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-900 bg-[#060a12] py-12 text-slate-400">
+    <footer className="border-t border-[#26313d] bg-[#0b1117] py-12 text-[#8f9aa4]">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-900">
+        <div className="flex flex-col items-center justify-between gap-6 border-b border-[#26313d] pb-8 md:flex-row">
           
           {/* Brand & Credentials */}
           <div className="flex items-center gap-3">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600/20 border border-blue-500/40 font-mono text-xs font-bold text-blue-400">
+            <span className="flex h-8 w-8 items-center justify-center border border-[#b99462]/50 bg-[#b99462]/10 text-xs font-semibold text-[#d8bd91]">
               MF
             </span>
             <div>
               <p className="text-sm font-bold text-white">Figura Márton Ferenc</p>
-              <p className="font-mono text-xs text-slate-400">
+              <p className="text-xs text-[#8f9aa4]">
                 Full-Stack Szoftverfejlesztő &bull; BME VIK Üzemmérnök-informatikus
               </p>
             </div>
           </div>
 
           {/* Direct channels */}
-          <div className="flex flex-wrap items-center gap-5 text-xs font-mono text-slate-400">
+          <div className="flex flex-wrap items-center gap-5 text-xs text-[#8f9aa4]">
             <a
               href="mailto:figuramarton2005@gmail.com"
-              className="hover:text-blue-400 transition-colors flex items-center gap-1.5"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#d8bd91]"
             >
-              <Mail className="h-3.5 w-3.5" />
+              <Mail className="h-3.5 w-3.5 text-[#52606c]" />
               figuramarton2005@gmail.com
             </a>
             <a
               href="tel:+36707034644"
-              className="hover:text-blue-400 transition-colors flex items-center gap-1.5 tabular-nums"
+              className="flex items-center gap-1.5 tabular-nums transition-colors hover:text-[#d8bd91]"
             >
-              <Phone className="h-3.5 w-3.5" />
+              <Phone className="h-3.5 w-3.5 text-[#52606c]" />
               +36 70 703 4644
             </a>
             <a
               href="https://github.com/xdmarci2005"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-blue-400 transition-colors flex items-center gap-1.5"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#d8bd91]"
             >
-              <GithubIcon className="h-3.5 w-3.5" />
+              <GithubIcon className="h-3.5 w-3.5 text-[#52606c]" />
               GitHub
             </a>
           </div>
         </div>
 
-        {/* Telemetry bottom bar */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+        {/* Bottom bar */}
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 text-xs text-[#8f9aa4] sm:flex-row">
           <p>
             &copy; 2025–2026 Figura Márton. Minden jog fenntartva.
           </p>
           <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1 text-emerald-500">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              STACK: NEXT.JS 16 &bull; TS &bull; TAILWIND
-            </span>
-            <span className="text-slate-700">|</span>
+            <span className="text-[#8f9aa4]">Köszönöm, hogy benéztél.</span>
+            <span className="text-[#52606c]">|</span>
             <a
               href="#"
-              className="hover:text-slate-300 transition-colors flex items-center gap-1"
+              className="flex items-center gap-1 transition-colors hover:text-[#f4f1ea]"
             >
               Tetejére
               <ArrowUp className="h-3 w-3" />
