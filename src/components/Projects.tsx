@@ -1,8 +1,24 @@
-import { ArrowUpRight } from "lucide-react";
+ "use client";
+
+import Image from "next/image";
+import { ArrowUpRight, X } from "lucide-react";
 import GithubIcon from "@/components/icons/GithubIcon";
+import { useEffect, useState } from "react";
 
 export default function Projects() {
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const technologies = ["React.js", "Node.js", "Express", "MySQL", "Git"];
+
+  useEffect(() => {
+    if (!isPreviewOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsPreviewOpen(false);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isPreviewOpen]);
 
   return (
     <section id="projektek" className="border-t border-[#26313d] bg-[#0b1117] py-24">
@@ -18,33 +34,21 @@ export default function Projects() {
         <article className="border border-[#52606c] bg-[#111820]">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
             <div className="border-b border-[#26313d] p-5 sm:p-8 lg:border-b-0 lg:border-r">
-              <div className="border border-[#52606c] bg-[#0b1117] p-3 shadow-xl">
-                <div className="flex items-center justify-between border-b border-[#26313d] pb-3 text-[11px] text-[#8f9aa4]">
-                  <span>noted.local / dashboard</span><span>2025</span>
-                </div>
-                <div className="grid grid-cols-[90px_1fr] gap-4 pt-4 sm:grid-cols-[120px_1fr]">
-                  <aside className="space-y-2 border-r border-[#26313d] pr-3 text-[10px] text-[#8f9aa4]">
-                    <div className="mb-5 font-semibold text-[#d8bd91]">NOTED.</div>
-                    <div className="bg-[#26313d] px-2 py-1.5 text-[#f4f1ea]">Jegyzeteim</div>
-                    <div className="px-2 py-1.5">Feladatok</div>
-                    <div className="px-2 py-1.5">Kategóriák</div>
-                  </aside>
-                  <div>
-                    <div className="flex items-start justify-between">
-                      <div><p className="text-sm font-semibold text-[#f4f1ea]">Összes jegyzet</p><p className="mt-1 text-[10px] text-[#8f9aa4]">6 aktív jegyzet</p></div>
-                      <span className="bg-[#b99462] px-2 py-1 text-[10px] font-medium text-[#171b20]">+ Új</span>
-                    </div>
-                    <div className="mt-5 grid gap-2 sm:grid-cols-2">
-                      {["API tervezési jegyzetek", "BME vizsgaterv", "Heti feladatlista", "Ötletek"].map((item, index) => (
-                        <div key={item} className="border border-[#52606c] bg-[#18212a] p-3">
-                          <span className={`mb-3 block h-1 w-6 ${index % 2 ? "bg-[#718a78]" : "bg-[#b99462]"}`} />
-                          <p className="text-[11px] font-medium text-[#f4f1ea]">{item}</p>
-                          <p className="mt-2 text-[9px] text-[#8f9aa4]">Frissítve ma</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+              <div className="overflow-hidden border border-[#52606c] bg-[#0b1117] shadow-xl">
+                <button
+                  type="button"
+                  onClick={() => setIsPreviewOpen(true)}
+                  className="block w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8bd91]"
+                  aria-label="Noted. szerkesztő kép megnyitása nagy nézetben"
+                >
+                  <Image
+                    src="/images/noted-editor.png"
+                    alt="A Noted. alkalmazás jegyzet szerkesztő felülete"
+                    width={1364}
+                    height={768}
+                    className="h-auto w-full object-cover transition-opacity hover:opacity-85"
+                  />
+                </button>
               </div>
               <p className="mt-3 text-xs text-[#8f9aa4]">A Noted. alkalmazás felülete: jegyzetek, feladatok és kategóriák egyetlen áttekinthető nézetben.</p>
             </div>
@@ -73,6 +77,33 @@ export default function Projects() {
           </div>
         </article>
       </div>
+      {isPreviewOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#05080c]/90 p-4 sm:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Noted. szerkesztő előnézete"
+          onClick={() => setIsPreviewOpen(false)}
+        >
+          <div className="relative max-h-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setIsPreviewOpen(false)}
+              className="absolute -right-2 -top-2 z-10 flex h-9 w-9 items-center justify-center border border-[#52606c] bg-[#111820] text-[#f4f1ea] transition-colors hover:border-[#d8bd91] hover:text-[#d8bd91] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8bd91]"
+              aria-label="Előnézet bezárása"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <Image
+              src="/images/noted-editor.png"
+              alt="A Noted. alkalmazás nagyított jegyzet szerkesztő felülete"
+              width={1364}
+              height={768}
+              className="max-h-[calc(100vh-4rem)] w-auto max-w-full border border-[#52606c] object-contain shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

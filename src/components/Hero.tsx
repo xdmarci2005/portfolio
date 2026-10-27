@@ -1,9 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin, X } from "lucide-react";
 import GithubIcon from "@/components/icons/GithubIcon";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isPreviewOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsPreviewOpen(false);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isPreviewOpen]);
+
   return (
     <section className="relative overflow-hidden border-b border-[#26313d] bg-dev-grid pt-16 pb-20 md:pt-24 md:pb-28">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-12 lg:gap-16">
@@ -59,39 +75,22 @@ export default function Hero() {
               <span className="text-[#e2e6e9]">Kiemelt munka / 2025</span>
               <span className="text-[#8f9aa4]">Noted.</span>
             </div>
-            <div className="grid grid-cols-[76px_1fr] gap-4 p-5 sm:grid-cols-[92px_1fr] sm:p-7">
-              <div className="space-y-2 border-r border-[#26313d] pr-4 text-[11px] text-[#8f9aa4]">
-                <div className="mb-5 text-[#d8bd91]">NOTED.</div>
-                <div className="bg-[#26313d] px-2 py-1.5 text-[#f4f1ea]">Összes jegyzet</div>
-                <div className="px-2 py-1.5">Feladatok</div>
-                <div className="px-2 py-1.5">Kategóriák</div>
-                <div className="px-2 py-1.5">Beállítások</div>
-              </div>
-              <div>
-                <div className="mb-5 flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-[#f4f1ea]">Jó reggelt, Márton</p>
-                    <p className="mt-1 text-[11px] text-[#8f9aa4]">A jegyzeteid egy helyen.</p>
-                  </div>
-                  <span className="border border-[#b99462]/50 px-2 py-1 text-[10px] text-[#d8bd91]">+ Új jegyzet</span>
-                </div>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="border border-[#52606c] bg-[#18212a] p-3">
-                    <div className="mb-4 h-1 w-8 bg-[#b99462]" />
-                    <p className="text-xs font-medium text-[#f4f1ea]">API tervezési jegyzetek</p>
-                    <p className="mt-2 text-[10px] leading-5 text-[#8f9aa4]">Végpontok, validáció, hibakezelés...</p>
-                  </div>
-                  <div className="border border-[#52606c] bg-[#18212a] p-3">
-                    <div className="mb-4 h-1 w-8 bg-[#718a78]" />
-                    <p className="text-xs font-medium text-[#f4f1ea]">BME vizsgaterv</p>
-                    <p className="mt-2 text-[10px] leading-5 text-[#8f9aa4]">Adatbázisok és algoritmusok...</p>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center gap-2 border-t border-[#26313d] pt-3 text-[10px] text-[#8f9aa4]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#9caf9b]" />
-                  Reszponzív React felület, Express API és MySQL adatbázis
-                </div>
-              </div>
+            <div className="p-3 sm:p-5">
+              <button
+                type="button"
+                onClick={() => setIsPreviewOpen(true)}
+                className="block w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8bd91]"
+                aria-label="Noted. áttekintő kép megnyitása nagy nézetben"
+              >
+                <Image
+                  src="/images/noted-overview.png"
+                  alt="A Noted. jegyzetkezelő alkalmazás áttekintő felülete"
+                  width={1364}
+                  height={768}
+                  className="h-auto w-full border border-[#26313d] object-cover transition-opacity hover:opacity-85"
+                  priority
+                />
+              </button>
             </div>
             <div className="flex items-center justify-between border-t border-[#26313d] px-5 py-3 text-[11px] text-[#8f9aa4]">
               <span className="flex items-center gap-1.5"><MapPin className="h-3 w-3" /> Budapest</span>
@@ -104,6 +103,33 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      {isPreviewOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#05080c]/90 p-4 sm:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Noted. alkalmazás előnézete"
+          onClick={() => setIsPreviewOpen(false)}
+        >
+          <div className="relative max-h-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setIsPreviewOpen(false)}
+              className="absolute -right-2 -top-2 z-10 flex h-9 w-9 items-center justify-center border border-[#52606c] bg-[#111820] text-[#f4f1ea] transition-colors hover:border-[#d8bd91] hover:text-[#d8bd91] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8bd91]"
+              aria-label="Előnézet bezárása"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <Image
+              src="/images/noted-overview.png"
+              alt="A Noted. jegyzetkezelő alkalmazás nagyított áttekintő felülete"
+              width={1364}
+              height={768}
+              className="max-h-[calc(100vh-4rem)] w-auto max-w-full border border-[#52606c] object-contain shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
